@@ -1,0 +1,507 @@
+{
+  "entities": {
+    "SiteSetting": {
+      "title": "SiteSetting",
+      "description": "Global CMS and LMS configuration for DANIVO INSTITUTE.",
+      "type": "object",
+      "properties": {
+        "brandName": { "type": "string", "maxLength": 120 },
+        "tagline": { "type": "string", "maxLength": 300 },
+        "logoUrl": { "type": "string", "maxLength": 500 },
+        "heroHeadline": { "type": "string", "maxLength": 300 },
+        "heroSubheadline": { "type": "string", "maxLength": 1000 },
+        "heroCtaPrimary": { "type": "string", "maxLength": 100 },
+        "heroCtaSecondary": { "type": "string", "maxLength": 100 },
+        "heroImageUrl": { "type": "string", "maxLength": 500 },
+        "primaryCurrency": { "type": "string", "maxLength": 10 },
+        "mpesaPaybillOrNumber": { "type": "string", "maxLength": 100 },
+        "mpesaInstructions": { "type": "string", "maxLength": 1000 },
+        "bankAccountNumber": { "type": "string", "maxLength": 100 },
+        "bankName": { "type": "string", "maxLength": 150 },
+        "bankBranch": { "type": "string", "maxLength": 150 },
+        "bankAccountName": { "type": "string", "maxLength": 150 },
+        "bankInstructions": { "type": "string", "maxLength": 1000 },
+        "contactEmail": { "type": "string", "maxLength": 150 },
+        "contactWhatsapp": { "type": "string", "maxLength": 50 },
+        "contactAddress": { "type": "string", "maxLength": 300 },
+        "announcementText": { "type": "string", "maxLength": 500 },
+        "isPublic": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "brandName",
+        "tagline",
+        "primaryCurrency",
+        "mpesaPaybillOrNumber",
+        "bankAccountNumber",
+        "isPublic",
+        "updatedAt"
+      ]
+    },
+    "Course": {
+      "title": "Course",
+      "description": "An educational course in the DANIVO INSTITUTE catalog.",
+      "type": "object",
+      "properties": {
+        "slug": { "type": "string", "maxLength": 150 },
+        "title": { "type": "string", "maxLength": 200 },
+        "shortDescription": { "type": "string", "maxLength": 600 },
+        "description": { "type": "string", "maxLength": 5000 },
+        "category": { "type": "string", "maxLength": 100 },
+        "instructorId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "instructorName": { "type": "string", "maxLength": 150 },
+        "thumbnailUrl": { "type": "string", "maxLength": 500 },
+        "isFree": { "type": "boolean" },
+        "regularPrice": { "type": "number" },
+        "salePrice": { "type": "number" },
+        "discountPercentage": { "type": "number" },
+        "currency": { "type": "string", "maxLength": 10 },
+        "accessType": { "type": "string", "enum": ["fixed_days", "lifetime"] },
+        "accessDurationDays": { "type": "number" },
+        "difficulty": { "type": "string", "enum": ["Beginner", "Intermediate", "Advanced"] },
+        "durationHours": { "type": "number" },
+        "language": { "type": "string", "maxLength": 50 },
+        "status": { "type": "string", "enum": ["draft", "published", "archived"] },
+        "featured": { "type": "boolean" },
+        "popular": { "type": "boolean" },
+        "isNew": { "type": "boolean" },
+        "rating": { "type": "number" },
+        "studentsCount": { "type": "number" },
+        "outcomes": { "type": "array" },
+        "requirements": { "type": "array" },
+        "skills": { "type": "array" },
+        "modules": { "type": "array" },
+        "completionRequireAllLessons": { "type": "boolean" },
+        "completionRequireQuizzes": { "type": "boolean" },
+        "completionRequireAssignments": { "type": "boolean" },
+        "completionMinQuizScore": { "type": "number" },
+        "orderIndex": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "slug",
+        "title",
+        "shortDescription",
+        "description",
+        "category",
+        "instructorId",
+        "instructorName",
+        "thumbnailUrl",
+        "isFree",
+        "regularPrice",
+        "salePrice",
+        "discountPercentage",
+        "currency",
+        "accessType",
+        "accessDurationDays",
+        "difficulty",
+        "durationHours",
+        "language",
+        "status",
+        "featured",
+        "popular",
+        "isNew",
+        "rating",
+        "studentsCount",
+        "outcomes",
+        "requirements",
+        "skills",
+        "modules",
+        "completionRequireAllLessons",
+        "completionRequireQuizzes",
+        "completionRequireAssignments",
+        "completionMinQuizScore",
+        "orderIndex",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Instructor": {
+      "title": "Instructor",
+      "description": "An instructor profile managed by DANIVO INSTITUTE administrators.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 150 },
+        "roleTitle": { "type": "string", "maxLength": 150 },
+        "bio": { "type": "string", "maxLength": 2000 },
+        "photoUrl": { "type": "string", "maxLength": 500 },
+        "expertise": { "type": "array" },
+        "qualifications": { "type": "string", "maxLength": 500 },
+        "linkedinUrl": { "type": "string", "maxLength": 300 },
+        "coursesCount": { "type": "number" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "name",
+        "roleTitle",
+        "bio",
+        "photoUrl",
+        "expertise",
+        "qualifications",
+        "linkedinUrl",
+        "coursesCount",
+        "isActive",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Student account profile with isolated PII access.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "fullName": { "type": "string", "maxLength": 150 },
+        "email": { "type": "string", "maxLength": 150 },
+        "phone": { "type": "string", "maxLength": 50 },
+        "photoUrl": { "type": "string", "maxLength": 500 },
+        "bio": { "type": "string", "maxLength": 1000 },
+        "savedCourseIds": { "type": "array" },
+        "notifyEmail": { "type": "boolean" },
+        "notifyCourseUpdates": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "uid",
+        "fullName",
+        "email",
+        "phone",
+        "photoUrl",
+        "bio",
+        "savedCourseIds",
+        "notifyEmail",
+        "notifyCourseUpdates",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "AdminRecord": {
+      "title": "AdminRecord",
+      "description": "Trusted administrator membership document.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "email": { "type": "string", "maxLength": 150 },
+        "grantedBy": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "grantedBy", "createdAt"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Course payment order and verification record.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "userName": { "type": "string", "maxLength": 150 },
+        "userEmail": { "type": "string", "maxLength": 150 },
+        "courseId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "courseTitle": { "type": "string", "maxLength": 200 },
+        "originalPrice": { "type": "number" },
+        "discountAmount": { "type": "number" },
+        "finalAmount": { "type": "number" },
+        "currency": { "type": "string", "maxLength": 10 },
+        "paymentMethod": { "type": "string", "enum": ["mpesa", "bank_transfer", "free"] },
+        "paymentReference": { "type": "string", "maxLength": 150 },
+        "paymentPhoneOrAccount": { "type": "string", "maxLength": 150 },
+        "paymentDateStr": { "type": "string", "maxLength": 100 },
+        "paymentNotes": { "type": "string", "maxLength": 500 },
+        "status": { "type": "string", "enum": ["pending", "under_review", "successful", "failed", "cancelled", "refunded"] },
+        "verifiedBy": { "type": "string", "maxLength": 128 },
+        "verificationNotes": { "type": "string", "maxLength": 500 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "userId",
+        "userName",
+        "userEmail",
+        "courseId",
+        "courseTitle",
+        "originalPrice",
+        "discountAmount",
+        "finalAmount",
+        "currency",
+        "paymentMethod",
+        "paymentReference",
+        "paymentPhoneOrAccount",
+        "paymentDateStr",
+        "paymentNotes",
+        "status",
+        "verifiedBy",
+        "verificationNotes",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Enrollment": {
+      "title": "Enrollment",
+      "description": "Student course enrollment and persistent progress record.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "userName": { "type": "string", "maxLength": 150 },
+        "userEmail": { "type": "string", "maxLength": 150 },
+        "courseId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "courseTitle": { "type": "string", "maxLength": 200 },
+        "orderId": { "type": "string", "maxLength": 128 },
+        "enrollmentType": { "type": "string", "enum": ["free", "paid"] },
+        "status": { "type": "string", "enum": ["active", "completed", "expired"] },
+        "progressPercent": { "type": "number" },
+        "completedLessonIds": { "type": "array" },
+        "passedQuizIds": { "type": "array" },
+        "approvedAssignmentIds": { "type": "array" },
+        "lastLessonId": { "type": "string", "maxLength": 128 },
+        "accessType": { "type": "string", "enum": ["fixed_days", "lifetime"] },
+        "enrolledAtMs": { "type": "number" },
+        "expiresAtMs": { "type": "number" },
+        "completedAtMs": { "type": "number" },
+        "certificateId": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "userId",
+        "userName",
+        "userEmail",
+        "courseId",
+        "courseTitle",
+        "orderId",
+        "enrollmentType",
+        "status",
+        "progressPercent",
+        "completedLessonIds",
+        "passedQuizIds",
+        "approvedAssignmentIds",
+        "lastLessonId",
+        "accessType",
+        "enrolledAtMs",
+        "expiresAtMs",
+        "completedAtMs",
+        "certificateId",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "QuizAttempt": {
+      "title": "QuizAttempt",
+      "description": "A recorded student quiz attempt and automatic grading score.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "courseId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "lessonId": { "type": "string", "maxLength": 128 },
+        "quizTitle": { "type": "string", "maxLength": 200 },
+        "scorePercent": { "type": "number" },
+        "passed": { "type": "boolean" },
+        "attemptNumber": { "type": "number" },
+        "answers": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "userId",
+        "courseId",
+        "lessonId",
+        "quizTitle",
+        "scorePercent",
+        "passed",
+        "attemptNumber",
+        "answers",
+        "createdAt"
+      ]
+    },
+    "AssignmentSubmission": {
+      "title": "AssignmentSubmission",
+      "description": "Student assignment submission and instructor grading feedback.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "userName": { "type": "string", "maxLength": 150 },
+        "courseId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "courseTitle": { "type": "string", "maxLength": 200 },
+        "lessonId": { "type": "string", "maxLength": 128 },
+        "assignmentTitle": { "type": "string", "maxLength": 200 },
+        "submissionText": { "type": "string", "maxLength": 10000 },
+        "attachmentUrl": { "type": "string", "maxLength": 500 },
+        "status": { "type": "string", "enum": ["submitted", "graded", "resubmit_requested"] },
+        "gradePercent": { "type": "number" },
+        "feedback": { "type": "string", "maxLength": 2000 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "userId",
+        "userName",
+        "courseId",
+        "courseTitle",
+        "lessonId",
+        "assignmentTitle",
+        "submissionText",
+        "attachmentUrl",
+        "status",
+        "gradePercent",
+        "feedback",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Certificate": {
+      "title": "Certificate",
+      "description": "Verifiable Certificate of Completion issued by DANIVO INSTITUTE.",
+      "type": "object",
+      "properties": {
+        "certificateId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "verificationCode": { "type": "string", "maxLength": 64 },
+        "userId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "studentName": { "type": "string", "maxLength": 150 },
+        "courseId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "courseTitle": { "type": "string", "maxLength": 200 },
+        "instructorName": { "type": "string", "maxLength": 150 },
+        "enrollmentId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "issuedDateStr": { "type": "string", "maxLength": 50 },
+        "status": { "type": "string", "enum": ["valid", "revoked"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "certificateId",
+        "verificationCode",
+        "userId",
+        "studentName",
+        "courseId",
+        "courseTitle",
+        "instructorName",
+        "enrollmentId",
+        "issuedDateStr",
+        "status",
+        "createdAt"
+      ]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "User system notification.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "title": { "type": "string", "maxLength": 200 },
+        "message": { "type": "string", "maxLength": 1000 },
+        "type": { "type": "string", "enum": ["enrollment", "payment", "certificate", "system", "assignment"] },
+        "isRead": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "message", "type", "isRead", "createdAt", "updatedAt"]
+    },
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "Contact inquiry sent to DANIVO INSTITUTE.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "name": { "type": "string", "maxLength": 150 },
+        "email": { "type": "string", "maxLength": 150 },
+        "phone": { "type": "string", "maxLength": 50 },
+        "subject": { "type": "string", "maxLength": 200 },
+        "message": { "type": "string", "maxLength": 3000 },
+        "status": { "type": "string", "enum": ["new", "resolved"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "email", "phone", "subject", "message", "status", "createdAt", "updatedAt"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Course review submitted by an enrolled student.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "userName": { "type": "string", "maxLength": 150 },
+        "courseId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "courseTitle": { "type": "string", "maxLength": 200 },
+        "enrollmentId": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string", "maxLength": 2000 },
+        "status": { "type": "string", "enum": ["published", "hidden"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "userName", "courseId", "courseTitle", "enrollmentId", "rating", "comment", "status", "createdAt", "updatedAt"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Administrative action audit log.",
+      "type": "object",
+      "properties": {
+        "adminUid": { "type": "string", "maxLength": 128, "pattern": "^[a-zA-Z0-9_\\-]+$" },
+        "adminEmail": { "type": "string", "maxLength": 150 },
+        "action": { "type": "string", "maxLength": 150 },
+        "targetType": { "type": "string", "maxLength": 100 },
+        "targetId": { "type": "string", "maxLength": 128 },
+        "details": { "type": "string", "maxLength": 1000 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["adminUid", "adminEmail", "action", "targetType", "targetId", "details", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/settings/{settingId}": {
+      "schema": "SiteSetting",
+      "description": "Global CMS and payment settings."
+    },
+    "/courses/{courseId}": {
+      "schema": "Course",
+      "description": "Course catalog and curriculum."
+    },
+    "/instructors/{instructorId}": {
+      "schema": "Instructor",
+      "description": "Instructor profiles."
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Student user profiles."
+    },
+    "/admins/{adminId}": {
+      "schema": "AdminRecord",
+      "description": "Trusted administrator records."
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Payment orders and reference submissions."
+    },
+    "/enrollments/{enrollmentId}": {
+      "schema": "Enrollment",
+      "description": "Student enrollments and learning progress."
+    },
+    "/quizAttempts/{attemptId}": {
+      "schema": "QuizAttempt",
+      "description": "Student quiz attempts."
+    },
+    "/assignmentSubmissions/{submissionId}": {
+      "schema": "AssignmentSubmission",
+      "description": "Student assignment submissions."
+    },
+    "/certificates/{certificateId}": {
+      "schema": "Certificate",
+      "description": "Issued certificates of completion."
+    },
+    "/notifications/{notificationId}": {
+      "schema": "Notification",
+      "description": "User notifications."
+    },
+    "/inquiries/{inquiryId}": {
+      "schema": "Inquiry",
+      "description": "Contact inquiries."
+    },
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Enrolled student course reviews."
+    },
+    "/auditLogs/{logId}": {
+      "schema": "AuditLog",
+      "description": "Administrator audit trail."
+    }
+  }
+}

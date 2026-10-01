@@ -1,0 +1,6 @@
+{
+  "name": "DANIVO INSTITUTE",
+  "description": "Production-grade Online Learning Management System (LMS) and Digital Skills Academy offering practical, career-focused courses in AI, Technology, Business, Digital Marketing, Media, and Personal Development.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
